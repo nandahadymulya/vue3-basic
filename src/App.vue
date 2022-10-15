@@ -4,6 +4,7 @@
 export default {
   data() {
     return {
+      count: 0,
       message: "Hello Nanda!",
     };
   },
@@ -15,6 +16,7 @@ export default {
   <br />
   <h1 :title="message">What's the message ? (Hover)</h1>
   <br />
+  <h1>{{ count }}</h1>
   <button @click="count++">+ 1</button>
 </template>
 
