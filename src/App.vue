@@ -8,6 +8,11 @@ export default {
       message: "Hello Nanda!",
     };
   },
+  methods: {
+    increment() {
+      this.count += 2;
+    },
+  },
 };
 </script>
 
@@ -18,6 +23,7 @@ export default {
   <br />
   <h1>{{ count }}</h1>
   <button @click="count++">+ 1</button>
+  <button @click="increment">Increment 2 by methods</button>
 </template>
 
 <style scoped></style>
