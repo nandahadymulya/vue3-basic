@@ -4,17 +4,22 @@
 export default {
   data() {
     return {
-      message: "Hello Nanda!",
+      message: "is true.",
+      status: false,
     };
+  },
+  methods: {
+    toggleStatus() {
+      this.status = !this.status;
+    },
   },
 };
 </script>
 
 <template>
-  <h1>{{ message }}</h1>
-  <input v-model="message" />
-  <!-- same with belows -->
-  <input :value="message" @input="message = $event.target.value" />
+  <button @click="toggleStatus">Change Status</button>
+  <h1 v-if="status">{{ message }}</h1>
+  <h1 v-else>is false.</h1>
 </template>
 
 <style scoped></style>
