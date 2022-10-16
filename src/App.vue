@@ -5,38 +5,20 @@
 export default {
   data() {
     return {
-      number1: 0,
-      number2: 0,
+      message: "Test",
     };
   },
-  computed: {
-    discount: {
-      get() {
-        return parseInt(this.number1) + parseInt(this.number2);
-      },
-      set(value) {
-        this.number1 -= value;
-        this.number2 -= value;
-      },
-    },
-  },
-  methods: {
-    addDiscount() {
-      this.discount = 500;
+  watch: {
+    message(value) {
+      console.log("Perubahan data message", value);
     },
   },
 };
 </script>
 
 <template>
-  <div>
-    <input v-model="number1" type="text" /> <br />
-    <input v-model="number2" type="text" />
-    <button @click="addDiscount">discount</button>
-  </div>
-  <div>
-    <h1>{{ discount }}</h1>
-  </div>
+  <h1>{{ message }}</h1>
+  <input v-model="message" />
 </template>
 
 <style scoped></style>
