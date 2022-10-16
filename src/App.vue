@@ -7,6 +7,7 @@ export default {
   components: { ChildComponent },
   data() {
     return {
+      todos: ["one", "two", "three"],
       message: "Hello from props data!",
     };
   },
@@ -15,8 +16,7 @@ export default {
 
 <template>
   <h1>Parent App</h1>
-  <ChildComponent :message="message" />
-  <child-component message="Hady" />
+  <ChildComponent v-for="todo in todos" :key="todo" :message="todo" />
 </template>
 
 <style scoped></style>
