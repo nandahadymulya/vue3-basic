@@ -4,19 +4,54 @@
 import ChildComponent from "./components/ChildComponent.vue";
 
 export default {
-  components: { ChildComponent },
   data() {
     return {
-      todos: ["one", "two", "three"],
-      message: "Hello from props data!",
+      message: "First Message",
     };
+  },
+
+  beforeCreate() {
+    console.log("beforeCreate");
+  },
+  created() {
+    console.log("created");
+    console.log(document.getElementById("lifecycle"));
+    // console.log(document.getElementById("lifecycle").textContent);
+    // fetch data from API
+  },
+  // after created component
+  beforeMount() {
+    console.log("beforeMount");
+  },
+  mounted() {
+    console.log("mounted");
+    console.log(document.getElementById("lifecycle"));
+    console.log(document.getElementById("lifecycle").textContent);
+    // process data
+  },
+  // re-render component
+  beforeUpdate() {
+    console.log("beforeUpdate");
+    console.log(document.getElementById("lifecycle").textContent);
+  },
+  updated() {
+    console.log("updated");
+    console.log(document.getElementById("lifecycle").textContent);
+  },
+  // destroy component after move to component
+  beforeUnmount() {
+    console.log("beforeUnmount");
+  },
+  unmounted() {
+    console.log("unmounted");
   },
 };
 </script>
 
 <template>
   <h1>Parent App</h1>
-  <ChildComponent v-for="todo in todos" :key="todo" :message="todo" />
+  <p id="lifecycle">{{ message }}</p>
+  <button @click="message = 'Re-rendering is running this.'">Updated</button>
 </template>
 
 <style scoped></style>
