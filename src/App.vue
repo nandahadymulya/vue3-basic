@@ -1,10 +1,23 @@
 <script>
-import ChildComponent from "./components/ChildComponent.vue";
+import ComponentOne from "./components/ComponentOne.vue";
 export default {
-  components: { ChildComponent },
+  components: {
+    ComponentOne,
+  },
+  data() {
+    return {
+      author: "Nanda Hady Mulya",
+    };
+  },
+  provide() {
+    return {
+      providedAuthor: this.author,
+    };
+  },
 };
 </script>
 
 <template>
-  <child-component title="Nanda" :number="28" />
+  <h1>Parent</h1>
+  <component-one />
 </template>
