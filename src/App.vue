@@ -1,28 +1,17 @@
 <script>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+import ChildComponent from "./components/ChildComponent.vue";
+
 export default {
-  data() {
-    return {
-      todos: [
-        {
-          id: 1,
-          title: "Todo One",
-        },
-        {
-          id: 2,
-          title: "Todo Two",
-        },
-      ],
-    };
-  },
+  components: { ChildComponent },
 };
 </script>
 
 <template>
-  <ol v-for="(todo, index) in todos" :key="todo.id">
-    <li>{{ index }} - {{ todo.title }}</li>
-  </ol>
+  <h1>Parent App</h1>
+  <ChildComponent />
+  <child-component />
 </template>
 
 <style scoped></style>
