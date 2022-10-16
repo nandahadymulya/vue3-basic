@@ -10,8 +10,8 @@ export default {
 
 <template>
   <h1>Parent App</h1>
-  <ChildComponent />
-  <child-component />
+  <ChildComponent message="Nanda" />
+  <child-component message="Hady" />
 </template>
 
 <style scoped></style>
