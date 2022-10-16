@@ -5,17 +5,28 @@
 export default {
   data() {
     return {
-      message: `<span style="color: red">Rendering v-html</span>`,
+      number1: 0,
+      number2: 0,
     };
+  },
+  computed: {
+    sum() {
+      return parseInt(this.number1) + parseInt(this.number2);
+    },
   },
 };
 </script>
 
 <template>
   <div>
-    {{ message }}
+    <input v-model="number1" type="text" />
+    <input v-model="number2" type="text" />
   </div>
-  <div v-html="message"></div>
+  <h1>By Data</h1>
+  <p>{{ parseInt(number1) + parseInt(number2) }}</p>
+
+  <h1>By Computed</h1>
+  {{ sum }}
 </template>
 
 <style scoped></style>
