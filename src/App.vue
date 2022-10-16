@@ -1,7 +1,10 @@
 <script>
-export default {};
+import ChildComponent from "./components/ChildComponent.vue";
+export default {
+  components: { ChildComponent },
+};
 </script>
 
 <template>
-  <ChildComponent />
+  <child-component title="Nanda" :number="28" />
 </template>

@@ -1,13 +1,16 @@
 <script>
 export default {
-  data() {
-    return {
-      title: "Title from Child",
-    };
+  props: {
+    title: String,
+    number: {
+      type: Number,
+      default: 0,
+    },
   },
 };
 </script>
 
 <template>
-  <header>Header</header>
+  <h1>{{ title }}</h1>
+  <h2>{{ number }}</h2>
 </template>
