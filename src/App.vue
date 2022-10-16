@@ -6,19 +6,28 @@ export default {
   data() {
     return {
       message: "Test",
+      status: true,
+      boldClass: "bold",
+      greenClass: "successed",
     };
-  },
-  watch: {
-    message(value) {
-      console.log("Perubahan data message", value);
-    },
   },
 };
 </script>
 
 <template>
-  <h1>{{ message }}</h1>
-  <input v-model="message" />
+  <h1 :class="status ? 'successed' : 'failded'">{{ message }}</h1>
+  <button @click="status = !status">Changed status</button>
+  <h1 :class="[boldClass, greenClass]">{{ message }}</h1>
 </template>
 
-<style scoped></style>
+<style scoped>
+.successed {
+  color: green;
+}
+.failded {
+  color: red;
+}
+.bold {
+  font-weight: 100;
+}
+</style>
