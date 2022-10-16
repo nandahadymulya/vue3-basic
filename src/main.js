@@ -1,4 +1,7 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import ChildComponent from "./components/ChildComponent.vue";
 
-createApp(App).mount("#app");
+const app = createApp(App);
+app.component("ChildComponent", ChildComponent);
+app.mount("#app");
