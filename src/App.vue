@@ -1,33 +1,29 @@
 <script>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+import ChildComponent from "./components/ChildComponent.vue";
 
 export default {
+  components: {
+    ChildComponent,
+  },
   data() {
     return {
-      message: "Test",
-      status: true,
-      boldClass: "bold",
-      greenClass: "successed",
+      message: "On Parent!",
+      value: "Message from Parent!",
     };
+  },
+  methods: {
+    changeMessage(value) {
+      this.message = value;
+    },
+    clickThis(value) {
+      this.$refs.childComponent.changeMessage(value);
+    },
   },
 };
 </script>
 
 <template>
-  <h1 :class="status ? 'successed' : 'failded'">{{ message }}</h1>
-  <button @click="status = !status">Changed status</button>
-  <h1 :class="[boldClass, greenClass]">{{ message }}</h1>
-</template>
+  <ChildComponent ref="childComponent" @child-event="changeMessage" :message="message" />
 
-<style scoped>
-.successed {
-  color: green;
-}
-.failded {
-  color: red;
-}
-.bold {
-  font-weight: 100;
-}
-</style>
+  <button @click="clickThis(value)">Click from parent</button>
+</template>
