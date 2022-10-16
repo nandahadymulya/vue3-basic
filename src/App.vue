@@ -4,22 +4,25 @@
 export default {
   data() {
     return {
-      message: "is true.",
-      status: false,
+      todos: [
+        {
+          id: 1,
+          title: "Todo One",
+        },
+        {
+          id: 2,
+          title: "Todo Two",
+        },
+      ],
     };
-  },
-  methods: {
-    toggleStatus() {
-      this.status = !this.status;
-    },
   },
 };
 </script>
 
 <template>
-  <button @click="toggleStatus">Change Status</button>
-  <h1 v-if="status">{{ message }}</h1>
-  <h1 v-else>is false.</h1>
+  <ol v-for="(todo, index) in todos" :key="todo.id">
+    <li>{{ index }} - {{ todo.title }}</li>
+  </ol>
 </template>
 
 <style scoped></style>
