@@ -10,8 +10,11 @@ export default {
 
 <template>
   <ChildComponent>
-    <template v-slot:default>
+    <!-- <template v-slot:default="props"> -->
+    <template v-slot:default="{ data }">
       <h1>Header</h1>
+      <!-- <span>Title: {{ props.data }} </span> -->
+      <span>Title: {{ data }} </span>
     </template>
     <template v-slot:main>
       <h1>Main</h1>
