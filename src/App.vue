@@ -7,23 +7,17 @@ export default {
   },
   data() {
     return {
-      message: "On Parent!",
-      value: "Message from Parent!",
+      message: "",
     };
-  },
-  methods: {
-    changeMessage(value) {
-      this.message = value;
-    },
-    clickThis(value) {
-      this.$refs.childComponent.changeMessage(value);
-    },
   },
 };
 </script>
 
 <template>
-  <ChildComponent ref="childComponent" @child-event="changeMessage" :message="message" />
+  <h1>Event: {{ message }}</h1>
+  <hr />
+  <ChildComponent :model-value="message" @update:model-value="message = $event" />
 
-  <button @click="clickThis(value)">Click from parent</button>
+  <hr />
+  <ChildComponent v-model="message" />
 </template>
