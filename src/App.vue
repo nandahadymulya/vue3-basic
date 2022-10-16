@@ -10,8 +10,19 @@ export default {
     };
   },
   computed: {
-    sum() {
-      return parseInt(this.number1) + parseInt(this.number2);
+    discount: {
+      get() {
+        return parseInt(this.number1) + parseInt(this.number2);
+      },
+      set(value) {
+        this.number1 -= value;
+        this.number2 -= value;
+      },
+    },
+  },
+  methods: {
+    addDiscount() {
+      this.discount = 500;
     },
   },
 };
@@ -19,14 +30,13 @@ export default {
 
 <template>
   <div>
-    <input v-model="number1" type="text" />
+    <input v-model="number1" type="text" /> <br />
     <input v-model="number2" type="text" />
+    <button @click="addDiscount">discount</button>
   </div>
-  <h1>By Data</h1>
-  <p>{{ parseInt(number1) + parseInt(number2) }}</p>
-
-  <h1>By Computed</h1>
-  {{ sum }}
+  <div>
+    <h1>{{ discount }}</h1>
+  </div>
 </template>
 
 <style scoped></style>
