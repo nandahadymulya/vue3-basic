@@ -5,15 +5,17 @@
 export default {
   data() {
     return {
-      message: "Render Only One",
+      message: `<span style="color: red">Rendering v-html</span>`,
     };
   },
 };
 </script>
 
 <template>
-  <h1 v-once>{{ message }}</h1>
-  <button @click="message = 'Rendering again.'">V-Once</button>
+  <div>
+    {{ message }}
+  </div>
+  <div v-html="message"></div>
 </template>
 
 <style scoped></style>
