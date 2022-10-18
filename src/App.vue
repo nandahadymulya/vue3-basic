@@ -1,18 +1,15 @@
 <script>
-import basicMixins from "./mixins/basic";
-import mergeMixins from "./mixins/merge";
+import HomeComponent from "./components/Home.vue";
 
 export default {
-  mixins: [basicMixins, mergeMixins],
-  data() {
-    return {
-      name: "Nanda",
-    };
+  components: {
+    HomeComponent,
   },
 };
 </script>
 
 <template>
-  <pre>{{ $data }}</pre>
-  <button @click="onClick">Click</button>
+  <teleport to="#teleport">
+    <HomeComponent />
+  </teleport>
 </template>
