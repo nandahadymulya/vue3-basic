@@ -56,7 +56,7 @@ export default {
     <div class="row p-5 text-center">
       <div class="col">
         <h1 class="fw-bold">Simple Todo App</h1>
-        <p class="text-muted">Developed using Vue 3 and Options API.</p>
+        <p class="text-muted">Developed using Vue 3 Options API.</p>
       </div>
     </div>
 
